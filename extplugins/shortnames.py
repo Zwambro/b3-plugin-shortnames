@@ -29,4 +29,4 @@ class ShortnamesPlugin(b3.plugin.Plugin):
             name = self.stripColors(event.client.name)
             if len(name) < 3:
                 self.debug("(%s) have short name" %(name))
-                event.client.kick("Short names not allowed", keyword="short name", silent=False)
+                event.client.kick("Short names not allowed", keyword="short_name", silent=False)
