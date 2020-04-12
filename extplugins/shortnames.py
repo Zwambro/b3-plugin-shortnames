@@ -6,7 +6,7 @@ import b3.events
 import b3.plugin
 from b3 import functions
 import re
-class NamecounterPlugin(b3.plugin.Plugin):
+class ShortnamesPlugin(b3.plugin.Plugin):
     _adminPlugin = False
     requiresConfigFile = False
 
@@ -28,5 +28,5 @@ class NamecounterPlugin(b3.plugin.Plugin):
         if event.type == b3.events.EVT_CLIENT_AUTH:
             name = self.stripColors(event.client.name)
             if len(name) < 3:
-                self.debug("(%s) have less than 2 characters in his name" %(name))
-                event.client.kick("Less player name characters")
+                self.debug("(%s) have short name" %(name))
+                event.client.kick("Short names not allowed", keyword="short name", silent=False)
