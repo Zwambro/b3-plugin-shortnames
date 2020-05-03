@@ -26,7 +26,7 @@ class ShortnamesPlugin(b3.plugin.Plugin):
 
     def onEvent(self, event):
         if event.type == b3.events.EVT_CLIENT_AUTH:
-            name = self.stripColors(event.client.name)
-            if len(name) < 3:
+            name = event.client.name
+            if len (str(name)) < 2:
                 self.debug("(%s) have short name" %(name))
                 event.client.kick("Short names not allowed", keyword="short_name", silent=False)
