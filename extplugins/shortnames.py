@@ -26,7 +26,17 @@ class ShortnamesPlugin(b3.plugin.Plugin):
 
     def onEvent(self, event):
         if event.type == b3.events.EVT_CLIENT_AUTH:
-            name = event.client.name
-            if len (str(name)) < 2:
+            name = str(event.client.name.replace(" ", ""))
+            guid = str(event.client.guid)
+            if len(name) < 3:
                 self.debug("(%s) have short name" %(name))
-                event.client.kick("Short names not allowed", keyword="short_name", silent=False)
+                event.client.ban("Are you bot dickhead?", keyword="famous_hacker", silent=True)
+                return
+            elif guid == "NOGUIDWARNINGNOGUIDWARNINGNOGUID":
+                self.debug("(%s) have generic guid" %(name))
+                event.client.ban("Are you bot motherfucker?", keyword="famous_hacker", silent=True)
+                return 
+            elif guid == "123456789NoGuid0123456789NoGuid0":
+                self.debug("(%s) have generic guid" %(name))
+                event.client.ban("Are you bot motherfucker?", keyword="famous_hacker", silent=True)
+                return 
