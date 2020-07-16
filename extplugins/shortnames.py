@@ -1,4 +1,34 @@
-__version__ = '1.0'
+#
+# ################################################################### #
+#                                                                     #
+#  Shortnames Plugin for BigBrotherBot(B3) (www.bigbrotherbot.com)    #
+#  Copyright (c) 2020 Zwambro                                         #
+#                                                                     #
+#  This program is free software; you can redistribute it and/or      #
+#  modify it under the terms of the GNU General Public License        #
+#  as published by the Free Software Foundation; either version 2     #
+#  of the License, or (at your option) any later version.             #
+#                                                                     #
+#  This program is distributed in the hope that it will be useful,    #
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of     #
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the       #
+#  GNU General Public License for more details.                       #
+#                                                                     #
+#  You should have received a copy of the GNU General Public License  #
+#  along with this program; if not, write to the Free Software        #
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA      #
+#  02110-1301, USA.                                                   #
+#                                                                     #
+# ################################################################### #
+# CHANGELOG:
+#  03.11.2020 - v1.0 - Zwambro
+#  - first release.
+#
+#  16/07/2020 - v1.1 - Zwambro
+#  - forgot to add ' (thanks to diamante0018 for the report)
+#
+
+__version__ = '1.1'
 __author__ = 'Zwambro'
 
 import b3
@@ -27,8 +57,8 @@ class ShortnamesPlugin(b3.plugin.Plugin):
             name = str(event.client.name.replace(" ", ""))
             if len(name) < 3:
                 self.debug("(%s) has short name" %(name))
-                event.client.ban("Are you bot?", keyword="short_name")
+                event.client.kick("Are you bot?", keyword="short_name")
                 return True
             else:
-                self.debug('Client has more than 3 characters on his in game name)
+                self.debug('Client has more than 3 characters on his in game name')
                 return False
